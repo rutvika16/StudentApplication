@@ -1,0 +1,34 @@
+<div class="container">
+          
+    <div class="d-flex align-items-center mb-2"><h1>Users</h1> <button  class="ml-auto btn btn-theme"routerLink="/student-add" >Create New</button> </div>
+    <div class="border rounded border-top-0">
+      <div class="table-responsive">
+     <table class="table mb-0 fs-14 table_md">
+             <thead>
+                
+               <tr>
+                 <th scope="col" width="140" style="min-width:120px;">ID<i class="fas fa-sort"></i></th>
+                 <th scope="col" width="140" style="min-width:120px;">Name<i class="fas fa-sort"></i></th>
+                 <th scope="col" width="140" style="min-width:120px;">Mobile Number<i class="fas fa-sort"></i></th>
+                 <th scope="col" width="180" style="min-width:180px;">Email Address<i class="fas fa-sort"></i></th>
+                 <th scope="col" width="140" style="min-width:110px;">Course Enrolled<i class="fas fa-sort"></i></th>
+                 <th scope="col" width="140" style="min-width:110px;">Fees Status<i class="fas fa-sort"></i></th>
+                 <th scope="col" width="150" style="min-width:110px;"></th>
+               </tr>
+             </thead>
+             <tbody *ngFor="let studentList of result">
+               <tr>
+                 <td>{{studentList.StudentId}}</td>
+                 <td>{{studentList.Name}}</td>
+                 <td>{{studentList.MobileNumber}}</td>
+                 <td>{{studentList.EmailId}}</td>
+                 <td>{{studentList.CourseEnrolled}}</td>
+                 <td>{{studentList.FeesStatus}}</td>
+                 <td class="text-right"><a href="" [routerLink]="['/student', studentList.StudentId]" class="mx-2" title="Edit">Edit</a>|
+                     <a href="" class="mx-2 text-danger delete_record"  title="Delete" (click)="Delete(studentList.StudentId)">Delete</a></td>
+               </tr>
+             </tbody>
+           </table>
+           </div>
+        </div>
+</div>
