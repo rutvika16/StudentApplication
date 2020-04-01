@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StudentDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MobileNumber" Type="Int64" Nullable="false" />
+    <Property Name="EmailId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CourseEnrolled" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FeesStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="StudentDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <FunctionImport Name="spDelete">
+      <Parameter Name="StudentId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spInsert">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="EmailId" Mode="In" Type="String" />
+      <Parameter Name="CourseEnrolled" Mode="In" Type="String" />
+      <Parameter Name="FeesStatus" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdate">
+      <Parameter Name="StudentId" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="EmailId" Mode="In" Type="String" />
+      <Parameter Name="CourseEnrolled" Mode="In" Type="String" />
+      <Parameter Name="FeesStatus" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>
