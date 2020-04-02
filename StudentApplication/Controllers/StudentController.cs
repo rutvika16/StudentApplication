@@ -114,6 +114,8 @@ namespace StudentApplication.Controllers
         }
 
         [HttpDelete]
+        [Route("{studentId}")]
+        
         public IHttpActionResult DeleteStudentDetail(int studentId)
         {
             using (var database = new StudentDbEntities())
