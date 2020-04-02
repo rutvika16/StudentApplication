@@ -28,6 +28,6 @@ import { Student } from './student';
     }  
     deleteStudentDetail(studentId: number): Observable<number> {  
       const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };  
-      return this.http.delete<number>(this.url + '/' , httpOptions);  
+      return this.http.delete<number>(this.url + '/' + studentId , httpOptions);  
     }  
   }  
